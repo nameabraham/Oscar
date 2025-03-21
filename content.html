@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100..700&family=Work+Sans:wght@100..900&display=swap");
+
+        :root {
+            --color-primary: #1e293b;
+            --color-primary-active: #090f1d;
+            --color-text-default: #ffffff;
+            --font-family-body: "Work Sans", sans-serif;
+            --font-family-display: "IBM Plex Serif", serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1e2028;
+            font-family: var(--font-family-body);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-text-default);
+            font-family: var(--font-family-display);
+            margin-bottom: 20px;
+        }
+
+        .fs-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: right;
+        }
+
+        .fs-field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .fs-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+            font-family: var(--font-family-display);
+        }
+
+        .fs-input,
+        .fs-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #94a3b8;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            color: var(--color-primary);
+        }
+
+        .fs-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .fs-button-group {
+            text-align: center;
+        }
+
+        .fs-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .fs-button:hover {
+            background-color: var(--color-primary-active);
+        }
+
+        .error-message, .success-message {
+            display: none;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            background: #ffdddd;
+            border: 1px solid red;
+        }
+
+        .success-message {
+            color: green;
+            background: #ddffdd;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="contact-title">📩 تواصل معنا</h1>
+
+    <form id="contactForm" class="fs-form" action="https://formspree.io/f/mnnpplag" method="POST">
+        <div class="fs-field">
+            <label class="fs-label" for="email">البريد الإلكتروني:</label>
+            <input class="fs-input" type="email" id="email" name="email" required>
+            <p id="error-message" class="error-message"></p>
+        </div>
+
+        <div class="fs-field">
+            <label class="fs-label" for="message">الرسالة:</label>
+            <textarea class="fs-textarea" id="message" name="message" required></textarea>
+        </div>
+
+        <div class="fs-button-group">
+            <button class="fs-button" type="submit">إرسال</button>
+        </div>
+
+        <p id="submission-success" class="success-message" style="display: none;">✅ تم الإرسال بنجاح! سيتم توجيهك بعد 3 ثوانٍ...</p>
+    </form>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();  
+            
+            var form = this;
+            var formData = new FormData(form);
+            var errorMessage = document.getElementById("error-message");
+            var submissionSuccess = document.getElementById("submission-success");
+
+            var emailInput = document.getElementById("email").value.trim();
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(emailInput)) {
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "❌ يرجى إدخال بريد إلكتروني صحيح!";
+                return;
+            }
+
+            errorMessage.style.display = "none";
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { "Accept": "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    submissionSuccess.style.display = "block"; 
+                    form.reset();
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 3000);
+                } else {
+                    alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
+                }
+            }).catch(error => {
+                alert("خطأ في الاتصال بالخادم.");
+            });
+        });
+    </script>
+
+</body>
+</html>

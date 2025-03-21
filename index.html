@@ -12,7 +12,7 @@ rel="stylesheet"
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Oscar</title>
+    <title>اوسكار</title>
   </head>
   <body>
     <main>
@@ -31,7 +31,7 @@ rel="stylesheet"
                   <a href="#about-us" class="nav-link">من نحن</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">تواصل معنا</a>
+                  <a href="content.html" class="nav-link">تواصل معنا</a>
                 </li>
               </ul>
           
@@ -42,7 +42,8 @@ rel="stylesheet"
     <h1><span>اوسكار</span> خيارك الأمثل للخدمات البرمجية</h1>
     <div class="ctas">
       <button class="cta purple">إعرف أكثر</button>
-      <button class="cta dark">تواصل معنا</button>
+      <a href="content.html"><button class="cta dark">تواصل معنا</button>
+      </a>
     </div>
   </div>
   
@@ -51,7 +52,7 @@ rel="stylesheet"
   <h6>حلول مبتكرة تناسب احتياجاتك</h6>
   <div class="features-list">
     <!-- قسم تصميم وبرمجة المواقع -->
-    <div class="feature">
+    <div class="feature" id="web">
       <div class="feature-images">
         <img src="img/img1.jpg" alt="web design 1" class="active" />
         <img src="img/img2.jpg" alt="web design 2" />
@@ -67,7 +68,7 @@ rel="stylesheet"
     </div>
 
     <!-- قسم تصميم وبرمجة التطبيقات -->
-    <div class="feature">
+    <div class="feature" id="app">
       <div class="feature-images">
         <img src="img/app1.jpg" alt="app development 1" class="active" />
         <img src="img/app2.jpg" alt="app development 2" />
@@ -83,7 +84,7 @@ rel="stylesheet"
     </div>
 
     <!-- قسم التسويق الرقمي -->
-    <div class="feature">
+    <div class="feature" id="ts">
       <div class="feature-images">
         <img src="img/tes1.jpg" alt="digital marketing 1" class="active" />
         <img src="img/tes2.jpg" alt="digital marketing 2" />
@@ -188,8 +189,7 @@ rel="stylesheet"
                 <div class="links-section">
                     <h5>الشركة</h5>
                     <ul>
-                        <li><a href="#">من نحن</a></li>
-                        <li><a href="#">المدونة التقنية</a></li>
+                        <li><a href="#about-us">من نحن</a></li>
                         <li><a href="#">انضم إلينا</a></li>
                         <li><a href="#">وسائل الإعلام</a></li>
                     </ul>
@@ -198,10 +198,10 @@ rel="stylesheet"
                 <div class="links-section">
                     <h5>الخدمات</h5>
                     <ul>
-                        <li><a href="#">تصميم مواقع احترافية</a></li>
-                        <li><a href="#">برمجة تطبيقات الهاتف</a></li>
+                        <li><a href="#web">تصميم مواقع احترافية</a></li>
+                        <li><a href="#app">برمجة تطبيقات الهاتف</a></li>
                         <li><a href="#">خدمات الذكاء الاصطناعي</a></li>
-                        <li><a href="#">التسويق الرقمي</a></li>
+                        <li><a href="#ts">التسويق الرقمي</a></li>
                     </ul>
                 </div>
     
