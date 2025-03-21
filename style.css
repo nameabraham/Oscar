@@ -1,0 +1,604 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800&display=swap");
+
+:root {
+  --white: #fff;
+  --gray: #c4c4c4;
+  --light-purple: #564ccf;
+  --dark-purple: #4c3fe2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #1e2028;
+  font-family: "Tajawal", sans-serif;
+}
+
+main {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #252731;
+    color: white;
+}
+
+#mobile-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.cta {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #mobile-toggle {
+        display:inline-block;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #252731;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-items.active {
+        display: flex;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+}
+
+
+
+.hero {
+  height: 81vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  width: 40%;
+  text-align: center;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.hero h1 span {
+  color: #4c3fe2;
+}
+
+.cta.purple {
+  background-color: var(--light-purple);
+  margin-left: 1rem;
+  transition: background-color 0.3s;
+}
+
+.cta.purple:hover {
+  background-color: var(--dark-purple);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .features h3 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .features h6 {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; 
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .feature {
+    background-color: #252731;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: calc(33.333% - 2rem); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feature-images {
+    position: relative;
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.feature-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.feature-images img.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+  
+  .feature .content {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .feature .content i {
+    color: var(--dark-purple);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature .content h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature .content p {
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .features-list {
+      flex-direction: column; 
+      align-items: center;
+    }
+  
+    .feature {
+      width: 100%; 
+      max-width: 400px;
+    }
+  
+    .feature-images {
+      height: 150px;
+    }
+  
+    .feature .content {
+      padding: 1rem;
+    }
+  
+    .feature .content h2 {
+      font-size: 1.2rem;
+    }
+  
+    .feature .content p {
+      font-size: 0.9rem;
+    }
+  }
+#about-us {
+    background-color: white; /* تغيير خلفية القسم */
+    padding: 60px 20px;
+    border: 3px solid #004D5A; /* إضافة إطار حول القسم */
+    border-radius: 15px; /* زوايا دائرية للإطار */
+    max-width: 1100px; /* تحديد عرض المربع */
+    margin: auto; /* توسيطه في الصفحة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل لإبراز المربع */
+}
+
+#about-us h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #004D5A; /* تغيير لون العنوان */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: auto;
+    gap: 20px;
+}
+
+.about-content img {
+    width: 40%;
+    max-width: 350px;
+    border-radius: 10px;
+    border: 3px solid #004D5A; /* إطار حول الصورة */
+}
+
+.text-content {
+    width: 55%;
+    text-align: right;
+}
+
+.text-content p {
+    font-size: 18px;
+    color: #004D5A;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .text-content {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+.details {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+
+.details h2 {
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.details h6 {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.details-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.detail {
+  background-color: #252731;
+  padding: 3rem;
+  border-radius: 2rem;
+  color: var(--white);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.detail i {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--light-purple);
+}
+
+.detail h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.detail p {
+  color: var(--gray);
+}
+
+footer {
+    background-color: #252731;
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: auto;
+    border-bottom: 1px solid #4c3fe2;
+    padding-bottom: 20px;
+}
+
+.footer-description {
+    width: 30%;
+    min-width: 280px;
+}
+
+.footer-description h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-description p {
+    opacity: 0.7;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 🔹 تصميم الروابط */
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    min-width: 280px;
+}
+
+.links-section {
+    width: 33%;
+}
+
+.links-section h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.links-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links-section ul li {
+    margin: 5px 0;
+}
+
+.links-section ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.links-section ul li a:hover {
+    color: #f39c12;
+    opacity: 1;
+}
+
+
+.footer-subscribe h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #4c3fe2;
+}
+
+.subscribe-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.subscribe-box input {
+    width: 70%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.subscribe-box button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.subscribe-box button:hover {
+    background-color: #e67e22;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f39c12;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-description,
+    .footer-links,
+    .footer-subscribe {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links-section {
+        width: 100%;
+    }
+
+    .subscribe-box {
+        flex-direction: column;
+    }
+
+    .subscribe-box input,
+    .subscribe-box button {
+        width: 100%;
+        border-radius: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 1400px) {
+  main {
+    max-width: 1024px;
+  }
+}
+@media screen and (max-width: 768px) {
+    .feature-images {
+      height: 150px; 
+    }
+  
+    .feature-images img {
+      object-fit: contain;
+    }
+  }
+  
+  .details-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+@media screen and (max-width: 800px) {
+  main {
+    max-width: 600px;
+  }
+  .details-list {
+    grid-template-columns: 1fr;
+  }
+  html {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    margin: 2rem;
+    text-align: center;
+  }
+  .feature .content p {
+    width: 100%;
+  }
+  .hero {
+    margin: 5rem 0;
+  }
+  .hero h1 {
+    width: 80%;
+  }
+  nav #mobile-toggle {
+    display: block;
+  }.nav-items {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    top: 10vh; 
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+    background-color: rgba(37, 39, 49, 0.85);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+  
+  .nav-items.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .nav-items .nav-item {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .nav-items .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+  }}
+
