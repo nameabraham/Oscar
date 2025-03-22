@@ -59,14 +59,41 @@ nav {
     color: #ccc;
 }
 
-.cta {
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
+.cta.purple {
+  background-color: #564ccf; 
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(86, 76, 207, 0.5); 
 }
+
+.cta.dark {
+  background-color: #ff6600; 
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(255, 102, 0, 0.5); 
+}
+
+.cta.purple:hover {
+  background-color: #483dc9; 
+}
+
+.cta.dark:hover {
+  background-color: #e65c00; 
+}
+
 
 @media (max-width: 768px) {
     #mobile-toggle {
@@ -153,15 +180,44 @@ nav {
     max-width: 1200px;
   }
   
-  .feature {
-    background-color: #252731;
-    border-radius: 1rem;
-    overflow: hidden;
-    width: calc(33.333% - 2rem); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-  }
+  /* الأنميشن عند تمرير الماوس: ارتفاع خفيف مع ظل */
+.feature {
+  background-color: #252731;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: calc(33.333% - 2rem); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* التأثير عند تمرير الماوس */
+.feature:hover {
+  transform: translateY(-5px); /* ارتفاع خفيف */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+}
+
+/* التأثير عند الضغط */
+.feature:active {
+  transform: translateY(-8px); /* ارتفاع إضافي عند الضغط */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* ظل أقوى */
+}
+
+/* تحسين التفاعل للأيقونات */
+.feature .content i {
+  transition: transform 0.3s ease;
+}
+
+.feature:hover .content i {
+  transform: scale(1.05); /* تكبير الأيقونة قليلاً عند تمرير الماوس */
+}
+
+.feature:active .content i {
+  transform: scale(1.1); /* تكبير الأيقونة أكثر عند الضغط */
+}
+
   
   .feature-images {
     position: relative;
