@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            text-align: center;
+        }
+        .title {
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+
+        .title::before, .title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: royalblue;
+        }
+
+        .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: royalblue;
+        }
+
+        .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+
+        .message, .signin {
+            color: rgba(88, 87, 87, 0.822);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .signin a {
+            color: royalblue;
+            text-decoration: none;
+        }
+
+        .signin a:hover {
+            text-decoration: underline;
+        }
+
+        .form label {
+            position: relative;
+            width: 100%;
+        }
+
+        .form label .input {
+            width: 93%;
+            padding: 10px 10px 20px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+        }
+
+        .form label .input + span {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: grey;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+
+        .form label .input:focus + span, 
+        .form label .input:valid + span {
+            top: 0px;
+            font-size: 0.7em;
+            font-weight: 600;
+            color: green;
+        }
+
+        .submit {
+            border: none;
+            outline: none;
+            background-color: royalblue;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+        .message {
+            color: green;
+            font-size: 14px;
+            text-align: center;
+            display: none; /* مخفي افتراضيًا */
+        }
+        .input {
+            width: 93%;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+        .submit {
+            border: none;
+            background-color: royalblue;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+    </style>
+</head>
+<body>
+
+<form class="form" onsubmit="register(event)">
+    <p class="title">التسجيل</p>
+    <p class="message" id="successMessage">تم التسجيل بنجاح! سيتم توجيهك إلى تسجيل الدخول...</p>
+
+    <label>
+        <input class="input" type="text" id="fullName" required>
+        <span>الاسم الكامل</span>
+    </label>
+
+    <label>
+        <input class="input" type="email" id="email" required>
+        <span>البريد الإلكتروني</span>
+    </label>
+
+    <label>
+        <input class="input" type="text" id="username" required>
+        <span>اسم المستخدم</span>
+    </label>
+
+    <label>
+        <input class="input" type="password" id="password" required>
+        <span>كلمة المرور</span>
+    </label>
+
+    <button class="submit" type="submit">إرسال</button>
+    <p class="signin">هل لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+</form>
+
+<script>
+    function register(event) {
+        event.preventDefault(); // منع تحديث الصفحة
+
+        let fullName = document.getElementById("fullName").value;
+        let email = document.getElementById("email").value;
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        // حفظ البيانات في localStorage
+        localStorage.setItem("fullName", fullName);
+        localStorage.setItem("email", email);
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+
+        // إظهار رسالة النجاح
+        let message = document.getElementById("successMessage");
+        message.style.display = "block";
+
+        // الانتظار 3 ثوانٍ ثم الانتقال إلى صفحة تسجيل الدخول
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 3000);
+    }
+</script>
+
+</body>
+</html>
