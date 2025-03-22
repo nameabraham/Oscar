@@ -99,7 +99,6 @@
             color: var(--dark-gray);
         }
 
-        /* إخفاء الإجابة افتراضيًا */
         .faq-item p {
             max-height: 0;
             overflow: hidden;
@@ -107,14 +106,12 @@
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
 
-        /* إظهار الإجابة عند النقر */
         .faq-item.active p {
             max-height: 200px;
             opacity: 1;
             padding-top: 10px;
         }
 
-        /* زر العودة */
         .back-btn {
             background: var(--light-blue);
             color: var(--white);
@@ -191,7 +188,6 @@
     </main>
 
     <script>
-        // إضافة تأثير الطي للأسئلة
         document.querySelectorAll(".faq-item").forEach(item => {
             item.addEventListener("click", () => {
                 item.classList.toggle("active");

@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// إضافة تأثير الظهور عند التمرير
 document.addEventListener("DOMContentLoaded", function () {
   const aboutSection = document.querySelector("#about-us");
 

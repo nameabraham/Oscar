@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,10 @@
         @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100..700&family=Work+Sans:wght@100..900&display=swap");
 
         :root {
-            --color-primary: #1e293b;
-            --color-primary-active: #090f1d;
-            --color-text-default: #ffffff;
-            --font-family-body: "Work Sans", sans-serif;
-            --font-family-display: "IBM Plex Serif", serif;
+            --white: #fff;
+            --gray: #ccc;
+            --light-blue: #004D5A;
+            --dark-gray: #333;
         }
 
         * {
@@ -22,8 +21,8 @@
         }
 
         body {
-            background-color: #1e2028;
-            font-family: var(--font-family-body);
+            background-color: var(--light-blue);
+            font-family: "Work Sans", sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -36,19 +35,20 @@
         .contact-title {
             font-size: 2rem;
             font-weight: bold;
-            color: var(--color-text-default);
-            font-family: var(--font-family-display);
+            color: var(--white);
+            font-family: "IBM Plex Serif", serif;
             margin-bottom: 20px;
         }
 
         .fs-form {
-            background: white;
+            background: var(--white);
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             width: 100%;
             text-align: right;
+            border: 3px solid var(--white);
         }
 
         .fs-field {
@@ -60,19 +60,26 @@
         .fs-label {
             font-weight: bold;
             margin-bottom: 0.5rem;
-            color: var(--color-primary);
-            font-family: var(--font-family-display);
+            color: var(--dark-gray);
+            font-family: "IBM Plex Serif", serif;
         }
 
         .fs-input,
         .fs-textarea {
             width: 100%;
             padding: 10px;
-            border: 2px solid #94a3b8;
+            border: 2px solid var(--gray);
             border-radius: 5px;
             font-size: 1rem;
             background-color: #f9f9f9;
-            color: var(--color-primary);
+            color: var(--dark-gray);
+            transition: border 0.3s ease-in-out;
+        }
+
+        .fs-input:focus,
+        .fs-textarea:focus {
+            border-color: var(--light-blue);
+            outline: none;
         }
 
         .fs-textarea {
@@ -89,16 +96,16 @@
             padding: 12px;
             font-size: 1.2rem;
             font-weight: bold;
-            background-color: var(--color-primary);
-            color: white;
+            background-color: var(--light-blue);
+            color: var(--white);
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s ease-in-out;
         }
 
         .fs-button:hover {
-            background-color: var(--color-primary-active);
+            background-color: #003844;
         }
 
         .error-message, .success-message {
@@ -117,9 +124,10 @@
         }
 
         .success-message {
-            color: green;
-            background: #ddffdd;
+            color: var(--white);
+            background: #28a745;
             border: 1px solid green;
+            display: none;
         }
     </style>
 </head>
@@ -143,7 +151,7 @@
             <button class="fs-button" type="submit">إرسال</button>
         </div>
 
-        <p id="submission-success" class="success-message" style="display: none;">✅ تم الإرسال بنجاح! سيتم توجيهك بعد 3 ثوانٍ...</p>
+        <p id="submission-success" class="success-message">✅ تم إرسال الرسالة بنجاح! سيتم توجيهك بعد 3 ثوانٍ...</p>
     </form>
 
     <script>
@@ -173,8 +181,9 @@
                 if (response.ok) {
                     submissionSuccess.style.display = "block"; 
                     form.reset();
+
                     setTimeout(() => {
-                        window.location.href = "index.html";
+                        window.location.href = "index.html";  
                     }, 3000);
                 } else {
                     alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
