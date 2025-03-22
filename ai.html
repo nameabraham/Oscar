@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الذكاء الاصطناعي</title>
+    <style>
+        :root {
+            --white: #fff;
+            --gray: #ccc;
+            --light-blue: #004D5A;
+            --dark-gray: #333;
+        }
+        
+        body {
+            font-family: "Arial", sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+            background: var(--light-blue);
+            color: var(--dark-gray);
+        }
+        
+        header {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        
+        /* صندوق الخدمات */
+        .ai-services {
+            padding: 60px 20px;
+            border: 3px solid var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* عنوان القسم */
+        .ai-services h2 {
+            font-size: 32px;
+            color: var(--light-blue);
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: bold;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .ai-services h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--light-blue);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* عنصر الخدمة */
+        .service {
+            background: var(--white);
+            border: 2px solid var(--light-blue);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: right;
+            position: relative;
+        }
+        
+        .service:hover {
+            transform: scale(1.02);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service h3 {
+            color: var(--light-blue);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .service p {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        خدمات الذكاء الاصطناعي
+    </header>
+
+    <main>
+        <section class="ai-services">
+            <h2>ما نقدمه لك في مجال الذكاء الاصطناعي</h2>
+
+            <div class="service">
+                <h3>تحليل البيانات الذكي</h3>
+                <p>نستخدم تقنيات الذكاء الاصطناعي لاستخراج الأنماط والاتجاهات من البيانات الضخمة لمساعدتك في اتخاذ قرارات دقيقة.</p>
+            </div>
+
+            <div class="service">
+                <h3>التعلم الآلي والتنبؤ</h3>
+                <p>نطور نماذج تعلم آلي تعتمد على الذكاء الاصطناعي لتحليل البيانات وتقديم توقعات دقيقة في مختلف المجالات.</p>
+            </div>
+
+            <div class="service">
+                <h3>أنظمة الذكاء الاصطناعي التفاعلية</h3>
+                <p>نقوم بتطوير روبوتات محادثة ذكية ومساعدات افتراضية لتحسين تجربة العملاء وأتمتة العمليات.</p>
+            </div>
+
+            <div class="service">
+                <h3>تحليل الصور والفيديو</h3>
+                <p>نستخدم تقنيات الذكاء الاصطناعي في التعرف على الوجه، تحليل الصور، واستخراج المعلومات من الفيديوهات بدقة عالية.</p>
+            </div>
+
+            <div class="service">
+                <h3>معالجة اللغة الطبيعية (NLP)</h3>
+                <p>نطور أنظمة تفهم وتحلل النصوص والكلام البشري مثل الترجمة الآلية وتحليل المشاعر.</p>
+            </div>
+
+            <div class="service">
+                <h3>أتمتة العمليات الذكية</h3>
+                <p>نساعدك في تحسين الإنتاجية من خلال أتمتة العمليات باستخدام تقنيات الذكاء الاصطناعي.</p>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انضم إلينا</title>
+    <style>
+        :root {
+            --white: #fff;
+            --gray: #ccc;
+            --light-blue: #004D5A;
+            --dark-gray: #333;
+        }
+        
+        body {
+            font-family: "Arial", sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+            background: var(--light-blue);
+            color: var(--dark-gray);
+        }
+        
+        header {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        /* صندوق الانضمام */
+        .join-us {
+            padding: 40px 20px;
+            border: 3px solid var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* عنوان القسم */
+        .join-us h2 {
+            font-size: 32px;
+            color: var(--light-blue);
+            position: relative;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .join-us h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--light-blue);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .join-form {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .join-form label {
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: var(--dark-gray);
+        }
+
+        .join-form input, .join-form textarea, .join-form select {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid var(--gray);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease-in-out;
+        }
+
+        .join-form input:focus, .join-form textarea:focus, .join-form select:focus {
+            border-color: var(--light-blue);
+            outline: none;
+        }
+
+        /* زر الإرسال */
+        .submit-btn {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #003844;
+        }
+
+        /* رسالة النجاح */
+        .success-message {
+            display: none;
+            padding: 15px;
+            margin-top: 20px;
+            background: #28a745;
+            color: var(--white);
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        انضم إلينا
+    </header>
+
+    <main>
+        <section class="join-us">
+            <h2>كن جزءًا من فريقنا</h2>
+            <p>إذا كنت مهتمًا بالانضمام إلينا، يرجى ملء النموذج أدناه وسنقوم بالتواصل معك قريبًا.</p>
+
+            <form class="join-form" id="joinForm" action="https://formspree.io/f/mnnpplag" method="POST">
+                <label for="name">الاسم الكامل</label>
+                <input type="text" id="name" name="name" placeholder="أدخل اسمك" required>
+
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+                <label for="phone">رقم الهاتف</label>
+                <input type="tel" id="phone" name="phone" placeholder="مثال: 05xxxxxxxx" required>
+
+                <label for="position">المجال الذي ترغب بالانضمام إليه</label>
+                <select id="position" name="position">
+                    <option value="frontend">تطوير الواجهة الأمامية (Front-End)</option>
+                    <option value="backend">تطوير الباك اند (Back-End)</option>
+                    <option value="ai">الذكاء الاصطناعي (AI)</option>
+                    <option value="design">تصميم الواجهات (UI/UX)</option>
+                    <option value="other">أخرى</option>
+                </select>
+
+                <label for="message">لماذا ترغب في الانضمام إلينا؟</label>
+                <textarea id="message" name="message" rows="4" placeholder="أخبرنا عن نفسك" required></textarea>
+
+                <button type="submit" class="submit-btn">إرسال الطلب</button>
+            </form>
+
+            <p id="submission-success" class="success-message">✅ تم إرسال الطلب بنجاح! سيتم توجيهك بعد 3 ثوانٍ...</p>
+
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("joinForm").addEventListener("submit", function(event) {
+            event.preventDefault();  
+            
+            var form = this;
+            var formData = new FormData(form);
+            var submissionSuccess = document.getElementById("submission-success");
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { "Accept": "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    submissionSuccess.style.display = "block"; 
+                    form.style.display = "none"; // إخفاء النموذج بعد الإرسال
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 3000);
+                } else {
+                    alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
+                }
+            }).catch(error => {
+                alert("خطأ في الاتصال بالخادم.");
+            });
+        });
+    </script>
+
+</body>
+</html>
