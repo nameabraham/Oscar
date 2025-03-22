@@ -48,3 +48,29 @@ window.addEventListener("scroll", checkScroll);
 });
 
 
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light-mode");
+    themeToggle.classList.replace("fa-moon", "fa-sun"); 
+} else {
+    body.classList.add("dark-mode");
+}
+
+themeToggle.addEventListener("click", () => {
+    if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+        themeToggle.classList.replace("fa-sun", "fa-moon");
+    } else {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        localStorage.setItem("theme", "light");
+        themeToggle.classList.replace("fa-moon", "fa-sun"); 
+    }
+});
+
+
+
