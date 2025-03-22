@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروط الاستخدام</title>
+    <style>
+        :root {
+            --white: #fff;
+            --gray: #ccc;
+            --light-blue: #004D5A;
+            --dark-gray: #333;
+        }
+        
+        body {
+            font-family: "Arial", sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+            background: var(--light-blue);
+            color: var(--dark-gray);
+        }
+        
+        header {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        /* صندوق الشروط */
+        .terms-container {
+            padding: 40px 20px;
+            border: 3px solid var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* عنوان القسم */
+        .terms-container h2 {
+            font-size: 32px;
+            color: var(--light-blue);
+            position: relative;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .terms-container h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--light-blue);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .terms-content {
+            text-align: right;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            padding: 10px;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: #003844;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        شروط الاستخدام
+    </header>
+
+    <main>
+        <section class="terms-container">
+            <h2>مرحبًا بك في موقعنا</h2>
+            <p class="terms-content">
+                نحن نؤمن بأن الوضوح والشفافية هما الأساس لبناء تجربة استخدام رائعة.  
+                باستخدام هذا الموقع، فإنك توافق على الاستمتاع بمحتواه بكل حرية ومسؤولية.  
+                لا توجد قيود معقدة أو شروط صارمة، فقط كن جزءًا من هذا المجتمع الرائع واستمتع بتجربتك معنا.  
+            </p>
+
+            <a href="index.html" class="back-btn">🔙 العودة إلى القائمة الرئيسية</a>
+        </section>
+    </main>
+
+</body>
+</html>
