@@ -1,197 +1,197 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .form {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 350px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .title {
-            font-size: 28px;
-            color: royalblue;
-            font-weight: 600;
-            text-align: center;
-        }
-        .title {
-            font-size: 28px;
-            color: royalblue;
-            font-weight: 600;
-            letter-spacing: -1px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding-left: 30px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول</title>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    text-align: center;
+}
+.title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
 
-        .title::before, .title::after {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            left: 0px;
-            background-color: royalblue;
-        }
+.title::before, .title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+}
 
-        .title::before {
-            width: 18px;
-            height: 18px;
-            background-color: royalblue;
-        }
+.title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+}
 
-        .title::after {
-            width: 18px;
-            height: 18px;
-            animation: pulse 1s linear infinite;
-        }
+.title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
 
-        .message, .signin {
-            color: rgba(88, 87, 87, 0.822);
-            font-size: 14px;
-            text-align: center;
-        }
+.message, .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+    text-align: center;
+}
 
-        .signin a {
-            color: royalblue;
-            text-decoration: none;
-        }
+.signin a {
+    color: royalblue;
+    text-decoration: none;
+}
 
-        .signin a:hover {
-            text-decoration: underline;
-        }
+.signin a:hover {
+    text-decoration: underline;
+}
 
-        .form label {
-            position: relative;
-            width: 100%;
-        }
+.form label {
+    position: relative;
+    width: 100%;
+}
 
-        .form label .input {
-            width: 93%;
-            padding: 10px 10px 20px 10px;
-            outline: 0;
-            border: 1px solid rgba(105, 105, 105, 0.397);
-            border-radius: 10px;
-        }
+.form label .input {
+    width: 93%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
 
-        .form label .input + span {
-            position: absolute;
-            left: 10px;
-            top: 15px;
-            color: grey;
-            font-size: 0.9em;
-            cursor: text;
-            transition: 0.3s ease;
-        }
+.form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
 
-        .form label .input:focus + span, 
-        .form label .input:valid + span {
-            top: 0px;
-            font-size: 0.7em;
-            font-weight: 600;
-            color: green;
-        }
+.form label .input:focus + span, 
+.form label .input:valid + span {
+    top: 0px;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: green;
+}
 
-        .submit {
-            border: none;
-            outline: none;
-            background-color: royalblue;
-            padding: 10px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 16px;
-            transition: 0.3s ease;
-            cursor: pointer;
-        }
+.submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
 
-        .submit:hover {
-            background-color: rgb(56, 90, 194);
-        }
-        .message {
-            color: red;
-            font-size: 14px;
-            text-align: center;
-            display: none; 
-        }
-        .input {
-            width: 93%;
-            padding: 10px;
-            border: 1px solid gray;
-            border-radius: 10px;
-        }
-        .submit {
-            border: none;
-            background-color: royalblue;
-            padding: 10px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .submit:hover {
-            background-color: rgb(56, 90, 194);
-        }
-    </style>
+.submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+.message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    display: none; 
+}
+.input {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.submit {
+    border: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+</style>
 </head>
 <body>
 
 <form class="form" onsubmit="login(event)">
-    <p class="title">تسجيل الدخول</p>
-    <p class="message" id="errorMessage">اسم المستخدم أو كلمة المرور غير صحيحة!</p>
+<p class="title">تسجيل الدخول</p>
+<p class="message" id="errorMessage">اسم المستخدم أو كلمة المرور غير صحيحة!</p>
 
-    <label>
-        <input class="input" type="text" id="loginUsername" required>
-        <span>اسم المستخدم</span>
-    </label>
+<label>
+<input class="input" type="text" id="loginUsername" required>
+<span>اسم المستخدم</span>
+</label>
 
-    <label>
-        <input class="input" type="password" id="loginPassword" required>
-        <span>كلمة المرور</span>
-    </label>
+<label>
+<input class="input" type="password" id="loginPassword" required>
+<span>كلمة المرور</span>
+</label>
 
-    <button class="submit" type="submit">دخول</button>
-    <p class="signin">ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
+<button class="submit" type="submit">دخول</button>
+<p class="signin">ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
 </form>
 
 <script>
-    function login(event) {
-        event.preventDefault(); 
+function login(event) {
+event.preventDefault(); 
 
-        let username = document.getElementById("loginUsername").value;
-        let password = document.getElementById("loginPassword").value;
+let username = document.getElementById("loginUsername").value;
+let password = document.getElementById("loginPassword").value;
 
-        let savedUsername = localStorage.getItem("username");
-        let savedPassword = localStorage.getItem("password");
+let savedUsername = localStorage.getItem("username");
+let savedPassword = localStorage.getItem("password");
 
-        if (username === savedUsername && password === savedPassword) {
-            alert("تم تسجيل الدخول بنجاح!");
-            window.location.href = "index.html";
-        } else {
-            let errorMessage = document.getElementById("errorMessage");
-            errorMessage.style.display = "block";
+if (username === savedUsername && password === savedPassword) {
+    alert("تم تسجيل الدخول بنجاح!");
+    window.location.href = "index.html";
+} else {
+    let errorMessage = document.getElementById("errorMessage");
+    errorMessage.style.display = "block";
 
-            setTimeout(() => {
-                window.location.href = "register.html";
-            }, 6000);
-        }
-    }
+    setTimeout(() => {
+        window.location.href = "register.html";
+    }, 6000);
+}
+}
 </script>
 
 </body>
