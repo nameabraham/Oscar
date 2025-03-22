@@ -180,42 +180,38 @@ nav {
     max-width: 1200px;
   }
   
-  /* الأنميشن عند تمرير الماوس: ارتفاع خفيف مع ظل */
 .feature {
   background-color: #252731;
   border-radius: 1rem;
   overflow: hidden;
   width: calc(33.333% - 2rem); 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-/* التأثير عند تمرير الماوس */
 .feature:hover {
-  transform: translateY(-5px); /* ارتفاع خفيف */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
 }
 
-/* التأثير عند الضغط */
 .feature:active {
-  transform: translateY(-8px); /* ارتفاع إضافي عند الضغط */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* ظل أقوى */
+  transform: translateY(-8px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* تحسين التفاعل للأيقونات */
 .feature .content i {
   transition: transform 0.3s ease;
 }
 
 .feature:hover .content i {
-  transform: scale(1.05); /* تكبير الأيقونة قليلاً عند تمرير الماوس */
+  transform: scale(1.05); 
 }
 
 .feature:active .content i {
-  transform: scale(1.1); /* تكبير الأيقونة أكثر عند الضغط */
+  transform: scale(1.1); 
 }
 
   
@@ -296,20 +292,20 @@ nav {
     }
   }
 #about-us {
-    background-color: white; /* تغيير خلفية القسم */
+    background-color: white; 
     padding: 60px 20px;
-    border: 3px solid #004D5A; /* إضافة إطار حول القسم */
-    border-radius: 15px; /* زوايا دائرية للإطار */
-    max-width: 1100px; /* تحديد عرض المربع */
-    margin: auto; /* توسيطه في الصفحة */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل لإبراز المربع */
+    border: 3px solid #004D5A; 
+    border-radius: 15px;
+    max-width: 1100px;
+    margin: auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 #about-us h2 {
     text-align: center;
     font-size: 32px;
     margin-bottom: 30px;
-    color: #004D5A; /* تغيير لون العنوان */
+    color: #004D5A; 
 }
 
 .about-content {
@@ -325,7 +321,7 @@ nav {
     width: 40%;
     max-width: 350px;
     border-radius: 10px;
-    border: 3px solid #004D5A; /* إطار حول الصورة */
+    border: 3px solid #004D5A;
 }
 
 .text-content {
@@ -357,28 +353,50 @@ nav {
 }
 
 
+/* التأثيرات العامة للقسم */
 .details {
   margin-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 10rem;
+  text-align: center;
 }
 
+/* عناوين القسم */
 .details h2 {
   color: var(--white);
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.details h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(to right, #483dc9, #564ccf);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.details h2:hover::after {
+  width: 80%;
 }
 
 .details h6 {
   color: var(--gray);
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .details-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 4rem;
 }
@@ -388,23 +406,76 @@ nav {
   padding: 3rem;
   border-radius: 2rem;
   color: var(--white);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.detail:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(208, 187, 216, 0.3);
+}
+
+.detail:active {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(120, 98, 221, 0.5);
+}
+
+.detail::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(127, 125, 236, 0.2), transparent);
+  transform: rotate(45deg);
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.detail:hover::before {
+  opacity: 1;
+  top: -30%;
+  left: -30%;
 }
 
 .detail i {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
-  color: var(--light-purple);
+  color: #4c3fe2;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.detail:hover i {
+  transform: rotate(10deg) scale(1.2);
+  color: #564ccf;
 }
 
 .detail h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.detail:hover h3 {
+  color: #483dc9;
 }
 
 .detail p {
   color: var(--gray);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  transition: color 0.3s ease-in-out;
 }
+
+.detail:hover p {
+  color: #ddd;
+}
+
 
 footer {
     background-color: #252731;
