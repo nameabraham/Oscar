@@ -5,136 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الأسئلة الشائعة</title>
     <style>
-            :root {
-                --white: #fff;
-                --gray: #ccc;
-                --light-blue: #004D5A;
-                --dark-gray: #333;
-              }
-              
-              body {
-                font-family: "Arial", sans-serif;
-                direction: rtl;
-                text-align: right;
-                margin: 0;
-                padding: 0;
-                background: var(--light-blue);
-                color: var(--dark-gray);
-              }
-              
-              header {
-                background: var(--light-blue);
-                color: var(--white);
-                padding: 15px;
-                text-align: center;
-                font-size: 1.5rem;
-                font-weight: bold;
-              }
-              
-              main {
-                padding: 20px;
-                max-width: 1100px;
-                margin: auto;
-              }
-              
-              .faq-section {
-                padding: 60px 20px;
-                border: 3px solid var(--light-blue);
-                border-radius: 15px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                text-align: center;
-                margin-top: 50px;
-              }
-              
-              .faq-section h2 {
-                font-size: 32px;
-                color: var(--gray);
-                position: relative;
-                margin-bottom: 40px;
-                font-weight: bold;
-                display: inline-block;
-                padding-bottom: 10px;
-              }
-              
-              .faq-section h2::after {
-                content: "";
-                display: block;
-                width: 80px;
-                height: 4px;
-                background-color: var(--light-blue);
-                margin: 10px auto 0;
-                border-radius: 2px;
-              }
-              
-              /* عناصر السؤال */
-              .faq-item {
-                background: var(--white);
-                border: 2px solid var(--light-blue);
-                padding: 15px;
-                margin: 10px 0;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                cursor: pointer;
-                text-align: right;
-                position: relative;
-              }
-              
-              .faq-item:hover {
-                transform: scale(1.02);
-                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
-              }
-              
-              .faq-item h3 {
-                color: var(--light-blue);
-                font-size: 1.2rem;
-                margin: 0;
-                transition: color 0.3s ease;
-              }
-              
-              .faq-item:hover h3 {
-                color: var(--dark-gray);
-              }
-              
-              .faq-item p {
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-              }
-              
-              .faq-item.active p {
-                max-height: 200px;
-                opacity: 1;
-                padding-top: 10px;
-              }
-              
-              @keyframes expand {
-                from {
-                  max-height: 0;
-                  opacity: 0;
-                }
-                to {
-                  max-height: 200px;
-                  opacity: 1;
-                }
-              }
-              
-              .faq-item.active p {
-                animation: expand 0.4s ease-in-out;
-              }
-              
-        </style>
-    
+        :root {
+            --white: #fff;
+            --gray: #ccc;
+            --light-blue: #004D5A;
+            --dark-gray: #333;
+        }
+        
+        body {
+            font-family: "Arial", sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+            background: var(--light-blue);
+            color: var(--dark-gray);
+        }
+        
+        header {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        
+        /* صندوق الأسئلة الشائعة */
+        .faq-container {
+            padding: 40px 20px;
+            border: 3px solid var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* عنوان القسم */
+        .faq-container h2 {
+            font-size: 32px;
+            color: var(--light-blue);
+            position: relative;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .faq-container h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--light-blue);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* عناصر الأسئلة */
+        .faq-item {
+            background: var(--white);
+            border: 2px solid var(--light-blue);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-align: right;
+            position: relative;
+        }
+
+        .faq-item:hover {
+            transform: scale(1.02);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-item h3 {
+            color: var(--light-blue);
+            font-size: 1.2rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item:hover h3 {
+            color: var(--dark-gray);
+        }
+
+        /* إخفاء الإجابة افتراضيًا */
+        .faq-item p {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        /* إظهار الإجابة عند النقر */
+        .faq-item.active p {
+            max-height: 200px;
+            opacity: 1;
+            padding-top: 10px;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: #003844;
+        }
+
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>الأسئلة الشائعة</h1>
+        الأسئلة الشائعة
     </header>
 
     <main>
-        <section class="faq-section">
+        <section class="faq-container">
             <h2>الأسئلة الشائعة حول خدماتنا</h2>
 
             <div class="faq-item">
@@ -144,12 +152,12 @@
 
             <div class="faq-item">
                 <h3>ما هي تقنيات الباك اند التي نستخدمها؟</h3>
-                <p>نعمل باستخدام لغات وتقنيات حديثة مثل Node.js، Laravel، Django، Spring Boot، Express.js، ونوفر حلولًا متقدمة لإدارة قواعد البيانات باستخدام MySQL، PostgreSQL، MongoDB، Firebase**.</p>
+                <p>نعمل باستخدام لغات وتقنيات حديثة مثل Node.js، Laravel، Django، Spring Boot، Express.js، ونوفر حلولًا متقدمة لإدارة قواعد البيانات باستخدام MySQL، PostgreSQL، MongoDB، Firebase.</p>
             </div>
 
             <div class="faq-item">
                 <h3>ما هي تقنيات الفرونت اند التي نستخدمها؟</h3>
-                <p>نحن متخصصون في بناء واجهات مستخدم احترافية باستخدام **React.js، Next.js، Vue.js، Angular مع تصميمات حديثة تعتمد على HTML، CSS، JavaScript، Tailwind CSS، Bootstrap.</p>
+                <p>نحن متخصصون في بناء واجهات مستخدم احترافية باستخدام React.js، Next.js، Vue.js، Angular مع تصميمات حديثة تعتمد على HTML، CSS، JavaScript، Tailwind CSS، Bootstrap.</p>
             </div>
 
             <div class="faq-item">
@@ -176,6 +184,8 @@
                 <h3>كيف يمكنني التواصل معكم للحصول على استشارة أو خدمة؟</h3>
                 <p>يمكنك التواصل معنا عبر البريد الإلكتروني، نموذج الاتصال في موقعنا، أو عبر منصات التواصل الاجتماعي، وسنكون سعداء بمساعدتك!</p>
             </div>
+
+            <a href="index.html" class="back-btn">🔙 العودة إلى القائمة الرئيسية</a>
 
         </section>
     </main>
