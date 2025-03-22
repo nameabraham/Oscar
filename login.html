@@ -128,7 +128,7 @@
             color: red;
             font-size: 14px;
             text-align: center;
-            display: none; /* مخفي افتراضيًا */
+            display: none; 
         }
         .input {
             width: 93%;
@@ -172,7 +172,7 @@
 
 <script>
     function login(event) {
-        event.preventDefault(); // منع تحديث الصفحة
+        event.preventDefault(); 
 
         let username = document.getElementById("loginUsername").value;
         let password = document.getElementById("loginPassword").value;
@@ -182,16 +182,14 @@
 
         if (username === savedUsername && password === savedPassword) {
             alert("تم تسجيل الدخول بنجاح!");
-            // يمكن توجيه المستخدم إلى صفحة رئيسية بعد تسجيل الدخول
             window.location.href = "index.html";
         } else {
             let errorMessage = document.getElementById("errorMessage");
             errorMessage.style.display = "block";
 
-            // العودة إلى صفحة التسجيل بعد ثانيتين
             setTimeout(() => {
                 window.location.href = "register.html";
-            }, 4000);
+            }, 6000);
         }
     }
 </script>

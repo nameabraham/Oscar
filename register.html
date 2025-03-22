@@ -128,7 +128,7 @@
             color: green;
             font-size: 14px;
             text-align: center;
-            display: none; /* مخفي افتراضيًا */
+            display: none;
         }
         .input {
             width: 93%;
@@ -182,24 +182,21 @@
 
 <script>
     function register(event) {
-        event.preventDefault(); // منع تحديث الصفحة
+        event.preventDefault(); 
 
         let fullName = document.getElementById("fullName").value;
         let email = document.getElementById("email").value;
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
 
-        // حفظ البيانات في localStorage
         localStorage.setItem("fullName", fullName);
         localStorage.setItem("email", email);
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
 
-        // إظهار رسالة النجاح
         let message = document.getElementById("successMessage");
         message.style.display = "block";
 
-        // الانتظار 3 ثوانٍ ثم الانتقال إلى صفحة تسجيل الدخول
         setTimeout(() => {
             window.location.href = "login.html";
         }, 3000);
