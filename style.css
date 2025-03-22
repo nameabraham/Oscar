@@ -530,7 +530,6 @@ footer {
   font-family: Arial, sans-serif;
 }
 
-/* ✅ ترتيب الفوتر بشكل أفقي */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
@@ -542,7 +541,6 @@ footer {
   align-items: flex-start;
 }
 
-/* 🏢 وصف الشركة */
 .footer-description {
   width: 30%;
   min-width: 280px;

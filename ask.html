@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة</title>
+    <style>
+            :root {
+                --white: #fff;
+                --gray: #ccc;
+                --light-blue: #004D5A;
+                --dark-gray: #333;
+              }
+              
+              body {
+                font-family: "Arial", sans-serif;
+                direction: rtl;
+                text-align: right;
+                margin: 0;
+                padding: 0;
+                background: var(--light-blue);
+                color: var(--dark-gray);
+              }
+              
+              header {
+                background: var(--light-blue);
+                color: var(--white);
+                padding: 15px;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+              }
+              
+              main {
+                padding: 20px;
+                max-width: 1100px;
+                margin: auto;
+              }
+              
+              .faq-section {
+                padding: 60px 20px;
+                border: 3px solid var(--light-blue);
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                margin-top: 50px;
+              }
+              
+              .faq-section h2 {
+                font-size: 32px;
+                color: var(--gray);
+                position: relative;
+                margin-bottom: 40px;
+                font-weight: bold;
+                display: inline-block;
+                padding-bottom: 10px;
+              }
+              
+              .faq-section h2::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 4px;
+                background-color: var(--light-blue);
+                margin: 10px auto 0;
+                border-radius: 2px;
+              }
+              
+              /* عناصر السؤال */
+              .faq-item {
+                background: var(--white);
+                border: 2px solid var(--light-blue);
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+                text-align: right;
+                position: relative;
+              }
+              
+              .faq-item:hover {
+                transform: scale(1.02);
+                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+              }
+              
+              .faq-item h3 {
+                color: var(--light-blue);
+                font-size: 1.2rem;
+                margin: 0;
+                transition: color 0.3s ease;
+              }
+              
+              .faq-item:hover h3 {
+                color: var(--dark-gray);
+              }
+              
+              .faq-item p {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+              }
+              
+              .faq-item.active p {
+                max-height: 200px;
+                opacity: 1;
+                padding-top: 10px;
+              }
+              
+              @keyframes expand {
+                from {
+                  max-height: 0;
+                  opacity: 0;
+                }
+                to {
+                  max-height: 200px;
+                  opacity: 1;
+                }
+              }
+              
+              .faq-item.active p {
+                animation: expand 0.4s ease-in-out;
+              }
+              
+        </style>
+    
+</head>
+<body>
+
+    <header>
+        <h1>الأسئلة الشائعة</h1>
+    </header>
+
+    <main>
+        <section class="faq-section">
+            <h2>الأسئلة الشائعة حول خدماتنا</h2>
+
+            <div class="faq-item">
+                <h3>ما هي الخدمات التي نقدمها؟</h3>
+                <p>نحن نقدم خدمات الباك اند (Back-End) والفرونت اند (Front-End)، مما يعني أننا نوفر حلولًا متكاملة لتطوير التطبيقات والمواقع الإلكترونية.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>ما هي تقنيات الباك اند التي نستخدمها؟</h3>
+                <p>نعمل باستخدام لغات وتقنيات حديثة مثل Node.js، Laravel، Django، Spring Boot، Express.js، ونوفر حلولًا متقدمة لإدارة قواعد البيانات باستخدام MySQL، PostgreSQL، MongoDB، Firebase**.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>ما هي تقنيات الفرونت اند التي نستخدمها؟</h3>
+                <p>نحن متخصصون في بناء واجهات مستخدم احترافية باستخدام **React.js، Next.js، Vue.js، Angular مع تصميمات حديثة تعتمد على HTML، CSS، JavaScript، Tailwind CSS، Bootstrap.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>هل تقدمون حلولًا متكاملة Full-Stack؟</h3>
+                <p>نعم، نقدم حلول Full-Stack حيث نقوم بتطوير كل من الواجهة الأمامية (Front-End) والخلفية (Back-End) لضمان التكامل التام بينهما وتحقيق أداء عالي.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>هل يمكنكم تطوير لوحة تحكم مخصصة للموقع أو التطبيق؟</h3>
+                <p>نعم، نقوم بتطوير لوحات تحكم متكاملة باستخدام React.js، Vue.js، أو Blade في Laravel لإدارة المحتوى والتحكم في البيانات بسهولة.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>هل توفرون خدمات تحسين الأداء وتجربة المستخدم؟</h3>
+                <p>بالتأكيد! نساعد في تحسين سرعة المواقع والتطبيقات، تحسين SEO، وتحسين تجربة المستخدم (UX/UI) لضمان أداء متميز وسرعة تحميل عالية.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>هل تقدمون خدمات الصيانة والتحديث بعد الإطلاق؟</h3>
+                <p>نعم، نقدم خطط صيانة مخصصة لضمان استمرارية العمل، تصحيح الأخطاء، وإضافة ميزات جديدة بناءً على احتياجات المشروع.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>كيف يمكنني التواصل معكم للحصول على استشارة أو خدمة؟</h3>
+                <p>يمكنك التواصل معنا عبر البريد الإلكتروني، نموذج الاتصال في موقعنا، أو عبر منصات التواصل الاجتماعي، وسنكون سعداء بمساعدتك!</p>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // إضافة تأثير الطي للأسئلة
+        document.querySelectorAll(".faq-item").forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
