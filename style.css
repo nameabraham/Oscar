@@ -310,7 +310,6 @@ nav {
   transform: translateY(0);
 }
 
-/* تنسيق عنوان "من نحن" */
 #about-us h2 {
   font-size: 32px;
   color: #ccc;
@@ -324,7 +323,6 @@ nav {
   transition: all 0.6s ease-in-out 0.3s;
 }
 
-/* إضافة خط تحت العنوان */
 #about-us h2::after {
   content: "";
   display: block;
@@ -340,7 +338,6 @@ nav {
   transform: translateY(0);
 }
 
-/* تحسين تنسيق النص */
 .about-content {
   max-width: 900px;
   margin: auto;
@@ -357,7 +354,6 @@ nav {
   transform: translateY(0);
 }
 
-/* تحسين التناسق للجوال */
 @media (max-width: 768px) {
   #about-us {
       padding: 40px 15px;
@@ -528,151 +524,169 @@ nav {
 
 
 footer {
-    background-color: #252731;
-    color: white;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
+  background-color: #252731;
+  color: white;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
 }
 
+/* ✅ ترتيب الفوتر بشكل أفقي */
 .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: auto;
-    border-bottom: 1px solid #4c3fe2;
-    padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  border-bottom: 1px solid #4c3fe2;
+  padding-bottom: 20px;
+  align-items: flex-start;
 }
 
+/* 🏢 وصف الشركة */
 .footer-description {
-    width: 30%;
-    min-width: 280px;
+  width: 30%;
+  min-width: 280px;
 }
 
 .footer-description h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .footer-description p {
-    opacity: 0.7;
-    font-size: 14px;
-    line-height: 1.6;
+  opacity: 0.7;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* 🔹 تصميم الروابط */
-.footer-links {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    min-width: 280px;
+/* ✅ الأقسام مرتبة بشكل أفقي */
+.footer-sections {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  min-width: 280px;
 }
 
-.links-section {
-    width: 33%;
+.section {
+  width: 30%;
+  text-align: center;
 }
 
-.links-section h5 {
-    font-size: 16px;
-    margin-bottom: 10px;
+.section h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #564ccf;
+  padding-bottom: 5px;
 }
 
-.links-section ul {
-    list-style: none;
-    padding: 0;
+.section ul {
+  list-style: none;
+  padding: 0;
 }
 
-.links-section ul li {
-    margin: 5px 0;
+.section ul li {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.links-section ul li a {
+
+.section ul li a {
     color: white;
     text-decoration: none;
-    opacity: 0.7;
+    font-size: 16px;
+    opacity: 0.8;
     transition: 0.3s;
 }
 
-.links-section ul li a:hover {
-    color: #f39c12;
-    opacity: 1;
-}
 
 
-.footer-subscribe h5 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #4c3fe2;
+/* 📩 الاشتراك */
+.footer-subscribe {
+  width: 25%;
+  min-width: 280px;
+  text-align: center;
 }
 
 .subscribe-box {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .subscribe-box input {
-    width: 70%;
-    padding: 8px;
-    border: none;
-    border-radius: 5px 0 0 5px;
+  width: 70%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px 0 0 5px;
 }
 
 .subscribe-box button {
-    background-color: #f39c12;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    transition: 0.3s;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .subscribe-box button:hover {
-    background-color: #e67e22;
+  background-color: #e67e22;
 }
 
+/* 🔗 أيقونات التواصل */
 .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .social-icons a {
-    color: white;
-    font-size: 18px;
-    transition: 0.3s;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
 .social-icons a:hover {
-    color: #f39c12;
+  color: #483dc9;
 }
 
 .footer-copyright {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 20px;
-    opacity: 0.7;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+  }
 
-    .footer-description,
-    .footer-links,
-    .footer-subscribe {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+  .footer-description,
+  .footer-sections,
+  .footer-subscribe {
+      width: 100%;
+      margin-bottom: 20px;
+  }
 
-    .footer-links {
-        flex-direction: column;
-        align-items: center;
-    }
+  .footer-sections {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .section {
+      width: 100%;
+      margin-bottom: 15px;
+  }
+}
+
 
     .links-section {
         width: 100%;
@@ -687,7 +701,6 @@ footer {
         width: 100%;
         border-radius: 5px;
     }
-}
 
 
 
