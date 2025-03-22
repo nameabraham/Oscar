@@ -302,6 +302,7 @@ nav {
   transform: translateY(50px);
   transition: all 0.8s ease-in-out;
   text-align: center; /* جعل النص في الوسط */
+  margin-top: 50px;
 }
 
 #about-us.show {
