@@ -32,5 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// إضافة تأثير الظهور عند التمرير
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutSection = document.querySelector("#about-us");
+
+  function checkScroll() {
+      const sectionPosition = aboutSection.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+
+      if (sectionPosition < screenPosition) {
+          aboutSection.classList.add("show");
+      }
+  }
+
+  window.addEventListener("scroll", checkScroll);
+});
 
 
