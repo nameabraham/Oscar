@@ -292,79 +292,87 @@ nav {
     }
   }
 #about-us {
-    padding: 60px 20px;
-    border: 3px solid #004D5A;
-    border-radius: 15px;
-    max-width: 1100px;
-    margin: auto;
-    box-shadow: 0 4px 15px rgba(234, 237, 238, 0.2);
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-in-out;
+  padding: 60px 20px;
+  border: 3px solid #004D5A;
+  border-radius: 15px;
+  max-width: 1100px;
+  margin: auto;
+  box-shadow: 0 4px 15px rgba(234, 237, 238, 0.2);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+  text-align: center; /* جعل النص في الوسط */
 }
 
 #about-us.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* تنسيق عنوان "من نحن" */
 #about-us h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #ccc;
-    position: relative;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.6s ease-in-out 0.3s;
+  font-size: 32px;
+  color: #ccc;
+  position: relative;
+  margin-bottom: 40px;
+  font-weight: bold;
+  display: inline-block;
+  padding-bottom: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.6s ease-in-out 0.3s;
+}
+
+/* إضافة خط تحت العنوان */
+#about-us h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #004D5A;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 #about-us.show h2 {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* تحسين تنسيق النص */
 .about-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: auto;
-    gap: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-in-out 0.5s;
+  max-width: 900px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out 0.5s;
 }
 
 #about-us.show .about-content {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.about-content img {
-    width: 40%;
-    max-width: 350px;
-    border-radius: 10px;
-    border: 3px solid #004D5A;
-    box-shadow: 0 8px 20px rgba(239, 242, 243, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.about-content img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 77, 90, 0.4);
-}
-
+/* تحسين التناسق للجوال */
 @media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
+  #about-us {
+      padding: 40px 15px;
+  }
 
-    .about-content img {
-        width: 80%;
-    }
+  #about-us h2 {
+      font-size: 28px;
+  }
+
+  .about-content {
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 0 10px;
+  }
 }
+
 
 
 .text-content {
