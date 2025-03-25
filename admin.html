@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - المشرف</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            text-align: center;
+        }
+        .title {
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+        
+        .title::before, .title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: royalblue;
+        }
+        
+        .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: royalblue;
+        }
+        
+        .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+        
+        .message, .signin {
+            color: rgba(88, 87, 87, 0.822);
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .signin a {
+            color: royalblue;
+            text-decoration: none;
+        }
+        
+        .signin a:hover {
+            text-decoration: underline;
+        }
+        
+        .form label {
+            position: relative;
+            width: 100%;
+        }
+        
+        .form label .input {
+            width: 93%;
+            padding: 10px 10px 20px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+        }
+        
+        .form label .input + span {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: grey;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+        
+        .form label .input:focus + span, 
+        .form label .input:valid + span {
+            top: 0px;
+            font-size: 0.7em;
+            font-weight: 600;
+            color: green;
+        }
+        
+        .submit {
+            border: none;
+            outline: none;
+            background-color: royalblue;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            display: none; 
+        }
+        .input {
+            width: 93%;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+        .submit {
+            border: none;
+            background-color: royalblue;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+        
+        /* إضافات خاصة بلوحة التحكم */
+        .admin-panel {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+        }
+        
+        .users-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .users-table th, .users-table td {
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .users-table th {
+            background-color: royalblue;
+            color: white;
+        }
+        
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 3px;
+        }
+        
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .add-btn {
+            background-color: #4CAF50;
+            color: white;
+            margin: 10px 0;
+            width: 100%;
+        }
+        
+        .add-user-form {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        /* تعديلات للجوال */
+        @media (max-width: 600px) {
+            .users-table {
+                font-size: 12px;
+            }
+            
+            .users-table th, 
+            .users-table td {
+                padding: 8px;
+            }
+            
+            .action-btn {
+                padding: 3px 6px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form" id="loginForm">
+    <p class="title">دخول المشرف</p>
+    <p class="message" id="errorMessage">كلمة المرور غير صحيحة!</p>
+
+    <label>
+        <input class="input" type="password" id="adminPassword" required>
+        <span>كلمة مرور المشرف</span>
+    </label>
+
+    <button class="submit" onclick="verifyAdmin()">دخول</button>
+</div>
+
+<div class="admin-panel" id="adminPanel">
+    <p class="title">لوحة التحكم</p>
+    
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>الإجراءات</th>
+                <th>البريد الإلكتروني</th>
+                <th>كلمة المرور</th>
+                <th>الاسم الكامل</th>
+                <th>تاريخ التسجيل</th>
+                <th>آخر دخول</th>
+            </tr>
+        </thead>
+        <tbody id="usersData">
+            <!-- سيتم ملؤها بالبيانات -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+const ADMIN_PASSWORD = "9090";
+
+function verifyAdmin() {
+    const password = document.getElementById('adminPassword').value;
+    
+    if(password === ADMIN_PASSWORD) {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+        loadUsers();
+    } else {
+        document.getElementById('errorMessage').style.display = 'block';
+    }
+}
+
+function loadUsers() {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const tableBody = document.getElementById('usersData');
+    
+    tableBody.innerHTML = '';
+    
+    if(users.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td colspan="6" style="text-align:center;">لا يوجد مستخدمين مسجلين</td>`;
+        tableBody.appendChild(row);
+        return;
+    }
+    
+    users.forEach((user, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <button class="action-btn delete-btn" onclick="deleteUser(${index})">حذف</button>
+            </td>
+            <td>${user.email || '---'}</td>
+            <td>${user.password || '---'}</td>
+            <td>${user.fullName || '---'}</td>
+            <td>${formatDate(user.registerDate)}</td>
+            <td>${user.lastLogin ? formatDate(user.lastLogin) : '---'}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function deleteUser(index) {
+    if(confirm('هل أنت متأكد من حذف هذا المستخدم؟')) {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.splice(index, 1);
+        localStorage.setItem('users', JSON.stringify(users));
+        loadUsers();
+    }
+}
+
+function formatDate(dateString) {
+    if(!dateString) return '---';
+    
+    try {
+        const options = { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        return new Date(dateString).toLocaleDateString('ar-EG', options);
+    } catch {
+        return '---';
+    }
+}
+</script>
+
+</body>
+</html>

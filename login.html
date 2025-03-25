@@ -155,6 +155,7 @@ body {
 <form class="form" onsubmit="login(event)">
 <p class="title">تسجيل الدخول</p>
 <p class="message" id="errorMessage">اسم المستخدم أو كلمة المرور غير صحيحة!</p>
+<p class="message" id="successMessage" style="color:green; display:none;">تم تسجيل الدخول بنجاح! جاري التحويل...</p>
 
 <label>
 <input class="input" type="text" id="loginUsername" required>
@@ -172,25 +173,34 @@ body {
 
 <script>
 function login(event) {
-event.preventDefault(); 
+    event.preventDefault(); 
+    
+    let username = document.getElementById("loginUsername").value;
+    let password = document.getElementById("loginPassword").value;
 
-let username = document.getElementById("loginUsername").value;
-let password = document.getElementById("loginPassword").value;
-
-let savedUsername = localStorage.getItem("username");
-let savedPassword = localStorage.getItem("password");
-
-if (username === savedUsername && password === savedPassword) {
-    alert("تم تسجيل الدخول بنجاح!");
-    window.location.href = "index.html";
-} else {
-    let errorMessage = document.getElementById("errorMessage");
-    errorMessage.style.display = "block";
-
-    setTimeout(() => {
-        window.location.href = "register.html";
-    }, 6000);
-}
+    if(username === "admin" && password === "9090") {
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("successMessage").style.display = "block";
+        setTimeout(() => {
+            window.location.href = "admin.html";
+        }, 2000);
+        return;
+    }
+    
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(u => u.username === username && u.password === password);
+    
+    if(user) {
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("successMessage").style.display = "block";
+        
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 2000);
+    } else {
+        document.getElementById("errorMessage").style.display = "block";
+        document.getElementById("successMessage").style.display = "none";
+    }
 }
 </script>
 

@@ -888,13 +888,12 @@ footer {
   text-decoration: underline;
 }
 .logo {
-  font-size: 1.6rem; /* تكبير الأيقونة قليلاً */
+  font-size: 1.6rem;
   color: var(--light-blue);
   cursor: pointer;
   transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-/* تكبير الأيقونة عند تحريك الماوس فوقها */
 .logo:hover {
   transform: scale(1.2);
 }

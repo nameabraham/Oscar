@@ -5,156 +5,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>التسجيل</title>
 <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-}
-.form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.title {
-    font-size: 28px;
-    color: royalblue;
-    font-weight: 600;
-    text-align: center;
-}
-.title {
-    font-size: 28px;
-    color: royalblue;
-    font-weight: 600;
-    letter-spacing: -1px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-}
-
-.title::before, .title::after {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    left: 0px;
-    background-color: royalblue;
-}
-
-.title::before {
-    width: 18px;
-    height: 18px;
-    background-color: royalblue;
-}
-
-.title::after {
-    width: 18px;
-    height: 18px;
-    animation: pulse 1s linear infinite;
-}
-
-.message, .signin {
-    color: rgba(88, 87, 87, 0.822);
-    font-size: 14px;
-    text-align: center;
-}
-
-.signin a {
-    color: royalblue;
-    text-decoration: none;
-}
-
-.signin a:hover {
-    text-decoration: underline;
-}
-
-.form label {
-    position: relative;
-    width: 100%;
-}
-
-.form label .input {
-    width: 93%;
-    padding: 10px 10px 20px 10px;
-    outline: 0;
-    border: 1px solid rgba(105, 105, 105, 0.397);
-    border-radius: 10px;
-}
-
-.form label .input + span {
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    color: grey;
-    font-size: 0.9em;
-    cursor: text;
-    transition: 0.3s ease;
-}
-
-.form label .input:focus + span, 
-.form label .input:valid + span {
-    top: 0px;
-    font-size: 0.7em;
-    font-weight: 600;
-    color: green;
-}
-
-.submit {
-    border: none;
-    outline: none;
-    background-color: royalblue;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.submit:hover {
-    background-color: rgb(56, 90, 194);
-}
-.message {
-    color: green;
-    font-size: 14px;
-    text-align: center;
-    display: none;
-}
-.input {
-    width: 93%;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 10px;
-}
-.submit {
-    border: none;
-    background-color: royalblue;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-}
-.submit:hover {
-    background-color: rgb(56, 90, 194);
-}
-</style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+    .form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 350px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .title {
+        font-size: 28px;
+        color: royalblue;
+        font-weight: 600;
+        text-align: center;
+    }
+    .title {
+        font-size: 28px;
+        color: royalblue;
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+    }
+    
+    .title::before, .title::after {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        left: 0px;
+        background-color: royalblue;
+    }
+    
+    .title::before {
+        width: 18px;
+        height: 18px;
+        background-color: royalblue;
+    }
+    
+    .title::after {
+        width: 18px;
+        height: 18px;
+        animation: pulse 1s linear infinite;
+    }
+    
+    .message, .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .signin a {
+        color: royalblue;
+        text-decoration: none;
+    }
+    
+    .signin a:hover {
+        text-decoration: underline;
+    }
+    
+    .form label {
+        position: relative;
+        width: 100%;
+    }
+    
+    .form label .input {
+        width: 93%;
+        padding: 10px 10px 20px 10px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+    }
+    
+    .form label .input + span {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        color: grey;
+        font-size: 0.9em;
+        cursor: text;
+        transition: 0.3s ease;
+    }
+    
+    .form label .input:focus + span, 
+    .form label .input:valid + span {
+        top: 0px;
+        font-size: 0.7em;
+        font-weight: 600;
+        color: green;
+    }
+    
+    .submit {
+        border: none;
+        outline: none;
+        background-color: royalblue;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .submit:hover {
+        background-color: rgb(56, 90, 194);
+    }
+    .message {
+        color: green;
+        font-size: 14px;
+        text-align: center;
+        display: none;
+    }
+    .input {
+        width: 93%;
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    .submit {
+        border: none;
+        background-color: royalblue;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .submit:hover {
+        background-color: rgb(56, 90, 194);
+    }
+    </style>
 </head>
 <body>
 
 <form class="form" onsubmit="register(event)">
 <p class="title">التسجيل</p>
 <p class="message" id="successMessage">تم التسجيل بنجاح! سيتم توجيهك إلى تسجيل الدخول...</p>
+<p class="message" id="errorMessage" style="color:red;"></p>
 
 <label>
 <input class="input" type="text" id="fullName" required>
@@ -181,25 +182,48 @@ body {
 </form>
 
 <script>
+if(!localStorage.getItem('users')) {
+    localStorage.setItem('users', JSON.stringify([]));
+}
+
 function register(event) {
-event.preventDefault(); 
-
-let fullName = document.getElementById("fullName").value;
-let email = document.getElementById("email").value;
-let username = document.getElementById("username").value;
-let password = document.getElementById("password").value;
-
-localStorage.setItem("fullName", fullName);
-localStorage.setItem("email", email);
-localStorage.setItem("username", username);
-localStorage.setItem("password", password);
-
-let message = document.getElementById("successMessage");
-message.style.display = "block";
-
-setTimeout(() => {
-    window.location.href = "login.html";
-}, 3000);
+    event.preventDefault();
+    
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    
+    const users = JSON.parse(localStorage.getItem('users'));
+    
+    const userExists = users.some(user => 
+        user.username === username || user.email === email
+    );
+    
+    if(userExists) {
+        document.getElementById('errorMessage').textContent = 'اسم المستخدم أو البريد الإلكتروني موجود بالفعل!';
+        document.getElementById('errorMessage').style.display = 'block';
+        return;
+    }
+    
+    const newUser = {
+        fullName,
+        email,
+        username,
+        password,
+        registerDate: new Date().toISOString(),
+        lastLogin: null
+    };
+    
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    document.getElementById('successMessage').style.display = 'block';
+    document.getElementById('errorMessage').style.display = 'none';
+    
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 2000);
 }
 </script>
 
